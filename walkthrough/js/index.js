@@ -1,12 +1,12 @@
 /*globals sap*/
 sap.ui.define(
   [
-    'sap/m/Text'
-  ], (Text) => {
+    'sap/ui/core/mvc/XMLView'
+  ], (XMLView) => {
     'use strict';
-    new Text({
-      text: 'Hello world!'
-    }).placeAt('content');
+    XMLView.create({
+      viewName: 'sapui.demo.walkthrough.view.App'
+    }).then(oView => { oView.placeAt('content'); });
   }
 
 );
