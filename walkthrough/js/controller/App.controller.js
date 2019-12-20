@@ -1,12 +1,13 @@
 /*globals sap*/
 sap.ui.define(
   [
-    'sap/ui/core/mvc/Controller'
+    'sap/ui/core/mvc/Controller',
+    'sap/m/MessageToast'
   ],
-  Controller => {
+  (Controller, MessageToast) => {
     'use strict';
     return Controller.extend('sapui.demo.walkthrough.js.controller.App', {
-      onShowHello: () => { alert('Hello World!'); }
+      onShowHello: () => { MessageToast.show('Hello World!'); }
     });
   }
 );
