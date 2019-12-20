@@ -2,12 +2,28 @@
 sap.ui.define(
   [
     'sap/ui/core/mvc/Controller',
-    'sap/m/MessageToast'
+    'sap/m/MessageToast',
+    'sap/ui/model/json/JSONModel'
   ],
-  (Controller, MessageToast) => {
+  function(Controller, MessageToast, JSONModel) {
     'use strict';
     return Controller.extend('sapui.demo.walkthrough.js.controller.App', {
-      onShowHello: () => { MessageToast.show('Hello World!'); }
+      onInit: function() {
+        const oData = {
+          recipient: {
+            name: 'World'
+          }
+        };
+        this.getView().setModel(
+          new JSONModel(oData)
+        );
+      },
+      onShowHello: function() {
+        MessageToast.show(
+          `Hello ${this.getView().getModel().getProperty('/recipient/name')}`
+        );
+
+      }
     });
   }
 );
