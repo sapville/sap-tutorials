@@ -1,0 +1,12 @@
+html[dir="ltr"] .myAppDemoWt .myCustomButton.sapMBtn {
+  margin-right: 0.125rem;
+}
+
+html[dir="rtl"] .myAppDemoWt .myCustomButton.sapMBtn {
+  margin-left: 0.125rem;
+}
+
+.myAppDemoWt .myCustomText {
+  display: inline-block;
+  font-weight: bold;
+}
