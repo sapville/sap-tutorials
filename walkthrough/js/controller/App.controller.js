@@ -7,11 +7,7 @@ sap.ui.define(
   function(Controller, MessageToast, JSONModel, ResourceModel) {
     'use strict';
     return Controller.extend('sapui.demo.walkthrough.js.controller.App', {
-      onShowHello: function() {
-        const sRecipient = this.getView().getModel().getProperty('/recipient/name');
-        const sText = this.getView().getModel('i18n').getResourceBundle().getText('helloMsg', [sRecipient]);
-        MessageToast.show(sText);
-      }
+
     });
   }
 );
