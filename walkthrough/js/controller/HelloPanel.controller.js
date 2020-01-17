@@ -14,24 +14,7 @@ sap.ui.define(
         MessageToast.show(sText);
       },
       onOpenDialog: function() {
-        const oView = this.getView();
-        const oLoadedDialog = this.byId('helloDialog');
-        if (!oLoadedDialog) {
-          Fragment.load({
-            id: oView.getId(),
-            name: 'sapui.demo.walkthrough.view.HelloDialog',
-            controller: this
-          }).then(oDialog => {
-            oView.addDependent(oDialog);
-            oDialog.open();
-          });
-        }
-        else {
-          oLoadedDialog.open();
-        }
-      },
-      onCloseDialog: function() {
-        this.byId('helloDialog').close();
+        this.getOwnerComponent().openHelloDialog();
       }
     });
   }

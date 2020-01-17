@@ -1,13 +1,14 @@
 /*globals sap*/
 sap.ui.define(
   [
-    'sap/ui/core/mvc/Controller',
-    'sap/m/MessageToast'
+    'sap/ui/core/mvc/Controller'
   ],
-  function(Controller, MessageToast, JSONModel, ResourceModel) {
+  function(Controller) {
     'use strict';
     return Controller.extend('sapui.demo.walkthrough.js.controller.App', {
-
+      onOpenDialog: function() {
+        this.getOwnerComponent().openHelloDialog();
+      }
     });
   }
 );

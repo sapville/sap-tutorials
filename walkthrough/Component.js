@@ -21,7 +21,7 @@ sap.ui.define(
         this.setModel(
           new JSONModel(oData)
         );
-        this._helloDialog = new HelloDialog(this.getRootControl);
+        this._helloDialog = new HelloDialog(this.getRootControl());
       },
       exit: function() {
         this._helloDialog.destroy();
