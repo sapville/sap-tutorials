@@ -14,6 +14,7 @@
           </headerContent>
           <content>
             <mvc:XMLView viewName="sapui.demo.walkthrough.view.HelloPanel"/>
+            <mvc:XMLView viewName="sapui.demo.walkthrough.view.InvoiceList"/>
           </content>
         </Page>
       </pages>
