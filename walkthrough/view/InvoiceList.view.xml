@@ -13,9 +13,20 @@
         number="{
           parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
           type: 'sap.ui.model.type.Currency',
-          formatOptions: { showMeasure: false }
+          formatOptions: { 
+            showMeasure: false,
+            decimalSeparator: '.',
+            groupingSeparator: ','
+          }
         }"
-        numberUnit="{view>/currency}"/>
+        icon="{= ${invoice>ExtendedPrice} > ${view>/threshold/max} ? 'sap-icon://warning2' : '' }"
+        numberUnit="{view>/currency}"
+        numberState="{
+          parts: [
+            {path: 'invoice>ExtendedPrice'}
+          ],
+          formatter: '.getState'
+        }"/>
     </items>
   </List>
 </mvc:View>
