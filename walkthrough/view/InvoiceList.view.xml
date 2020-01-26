@@ -19,14 +19,19 @@
             groupingSeparator: ','
           }
         }"
-        icon="{= ${invoice>ExtendedPrice} > ${view>/threshold/max} ? 'sap-icon://warning2' : '' }"
+        icon="{= ${invoice>ExtendedPrice} > ${.formatter.threshold.max} ? 'sap-icon://warning2' : '' }"
         numberUnit="{view>/currency}"
         numberState="{
           parts: [
             {path: 'invoice>ExtendedPrice'}
           ],
-          formatter: '.getState'
-        }"/>
+          formatter: '.formatter.getState'
+        }">
+        <firstStatus>
+          <ObjectStatus
+            text="{path: 'invoice>Status', formatter: '.formatter.statusText'}"/>
+        </firstStatus>
+      </ObjectListItem>
     </items>
   </List>
 </mvc:View>
