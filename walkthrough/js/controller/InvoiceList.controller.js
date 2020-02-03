@@ -26,6 +26,9 @@ sap.ui.define(
           aFilter.push(new Filter('ProductName', FilterOperator.Contains, sQuery));
         }
         this.byId('invoiceList').getBinding('items').filter(aFilter);
+      },
+      onPress: function(oEvent) {
+        sap.ui.core.UIComponent.getRouterFor(this).navTo('detail');
       }
     });
   }

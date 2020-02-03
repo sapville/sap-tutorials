@@ -36,7 +36,9 @@
             {path: 'invoice>ExtendedPrice'}
           ],
           formatter: '.formatter.getState'
-        }">
+        }"
+        type="Navigation"
+        press="onPress">
         <firstStatus>
           <ObjectStatus
             text="{path: 'invoice>Status', formatter: '.formatter.statusText'}"/>
