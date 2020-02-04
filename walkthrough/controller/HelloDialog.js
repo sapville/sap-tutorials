@@ -4,7 +4,7 @@ sap.ui.define([
   'sap/ui/core/Fragment'
 ], function(ManagedObject, Fragment) {
   'use strict';
-  return ManagedObject.extend('sapui.demo.walkthrough.js.controller.HelloDialog', {
+  return ManagedObject.extend('sapui.demo.walkthrough.controller.HelloDialog', {
     constructor: function(oView) {
       this._oView = oView;
     },

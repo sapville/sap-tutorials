@@ -9,7 +9,7 @@ sap.ui.define(
   ],
   function(Controller, JSONModel, formatter, Filter, FilterOperator) {
     'use strict';
-    return Controller.extend('sapui.demo.walkthrough.js.controller.InvoiceList', {
+    return Controller.extend('sapui.demo.walkthrough.controller.InvoiceList', {
       formatter: formatter,
       onInit: function() {
         this.getView().setModel(
@@ -28,7 +28,9 @@ sap.ui.define(
         this.byId('invoiceList').getBinding('items').filter(aFilter);
       },
       onPress: function(oEvent) {
-        sap.ui.core.UIComponent.getRouterFor(this).navTo('detail');
+        sap.ui.core.UIComponent.getRouterFor(this).navTo('detail', {
+          invoicePath: oEvent.getSource().getBindingContext('invoice').getPath().substr(1)
+        });
       }
     });
   }

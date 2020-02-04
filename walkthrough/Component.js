@@ -3,7 +3,7 @@ sap.ui.define(
   [
     'sap/ui/core/UIComponent',
     'sap/ui/model/json/JSONModel',
-    './js/controller/HelloDialog'
+    './controller/HelloDialog'
   ],
   function(UIComponent, JSONModel, HelloDialog) {
     'use strict';

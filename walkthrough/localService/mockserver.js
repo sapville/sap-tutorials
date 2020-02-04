@@ -14,7 +14,8 @@ sap.ui.define([
 
       MockServer.config({
         autoRespond: true,
-        autoRespondAfter: oUriParameters.get('serverDelay') || 500
+        // autoRespondAfter: oUriParameters.get('serverDelay') || 500
+        autoRespondAfter: 0
       });
 
       const sPath = '../localService';

@@ -7,7 +7,7 @@ sap.ui.define(
   ],
   function(Controller, MessageToast, Fragment) {
     'use strict';
-    return Controller.extend('sapui.demo.walkthrough.js.controller.HelloPanel', {
+    return Controller.extend('sapui.demo.walkthrough.controller.HelloPanel', {
       onShowHello: function() {
         const sRecipient = this.getView().getModel().getProperty('/recipient/name');
         const sText = this.getView().getModel('i18n').getResourceBundle().getText('helloMsg', [sRecipient]);

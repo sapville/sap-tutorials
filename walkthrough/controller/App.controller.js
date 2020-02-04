@@ -5,7 +5,7 @@ sap.ui.define(
   ],
   function(Controller) {
     'use strict';
-    return Controller.extend('sapui.demo.walkthrough.js.controller.App', {
+    return Controller.extend('sapui.demo.walkthrough.controller.App', {
       onOpenDialog: function() {
         this.getOwnerComponent().openHelloDialog();
       }
