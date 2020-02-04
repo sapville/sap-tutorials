@@ -29,7 +29,7 @@ sap.ui.define(
       },
       onPress: function(oEvent) {
         sap.ui.core.UIComponent.getRouterFor(this).navTo('detail', {
-          invoicePath: oEvent.getSource().getBindingContext('invoice').getPath().substr(1)
+          id: oEvent.getSource().data('id')
         });
       }
     });

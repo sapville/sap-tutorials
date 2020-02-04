@@ -12,8 +12,10 @@ sap.ui.define(
         oRouter.getRoute('detail').attachPatternMatched(this._onObjectMatched, this);
       },
       _onObjectMatched: function(oEvent) {
+        const sPath = '/Invoices(\'' + oEvent.getParameter('arguments').id + '\')';
+        console.log(sPath);
         this.getView().bindElement({
-          path: '/' + oEvent.getParameter('arguments').invoicePath,
+          path: sPath,
           model: 'invoice'
         });
       }

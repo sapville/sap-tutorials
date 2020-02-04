@@ -5,8 +5,6 @@
 			<EntityType Name="Invoice">
 				<Key>
 					<PropertyRef Name="ProductName"/>
-					<PropertyRef Name="Quantity"/>
-					<PropertyRef Name="ShipperName"/>
 				</Key>
 				<Property Name="ShipperName" Type="Edm.String" Nullable="false" MaxLength="40" FixedLength="false"
 						  Unicode="true"/>

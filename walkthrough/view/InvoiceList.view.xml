@@ -39,7 +39,8 @@
           formatter: '.formatter.getState'
         }"
         type="Navigation"
-        press="onPress">
+        press="onPress"
+        app:id="{invoice>ProductName}">
         <firstStatus>
           <ObjectStatus
             text="{path: 'invoice>Status', formatter: '.formatter.statusText'}"/>
