@@ -3,9 +3,10 @@ sap.ui.define(
   [
     'sap/ui/core/mvc/Controller',
     'sap/ui/core/UIComponent',
-    'sap/ui/core/routing/History'
+    'sap/ui/core/routing/History',
+    'sap/m/MessageToast'
   ],
-  function(Controller, UIComponent, History) {
+  function(Controller, UIComponent, History, MessageToast) {
     'use strict';
     return Controller.extend('sapui.demo.walkthrough.controller.Detail', {
       onInit: function() {
@@ -21,10 +22,15 @@ sap.ui.define(
         }
       },
       _onObjectMatched: function(oEvent) {
+        this.byId('rating').reset();
         this.getView().bindElement({
           path: '/' + oEvent.getParameter('arguments').invoicePath,
           model: 'invoice'
         });
+      },
+      onRatingChange: function(oEvent) {
+        const sConfirmationText = this.getView().getModel('i18n').getResourceBundle().getText('ratingConfirmation', [oEvent.getParameter('value')]);
+        MessageToast.show(sConfirmationText);
       }
     });
   }
