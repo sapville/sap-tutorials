@@ -3,8 +3,8 @@ sap.ui.define([],
   function() {
     const that = this;
     this._threshold = {
-      min: 10,
-      max: 100
+      min: 9,
+      max: 99
     };
     return {
       statusText: function(sStatus) {

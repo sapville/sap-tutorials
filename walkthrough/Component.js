@@ -4,9 +4,10 @@ sap.ui.define(
     'sap/ui/core/UIComponent',
     'sap/ui/model/json/JSONModel',
     './controller/HelloDialog',
-    'sap/ui/Device'
+    'sap/ui/Device',
+    'sapui/demo/walkthrough/model/formatter'
   ],
-  function(UIComponent, JSONModel, HelloDialog, Device) {
+  function(UIComponent, JSONModel, HelloDialog, Device, formatter) {
     'use strict';
     return UIComponent.extend('sapui.demo.walkthrough.Component', {
       metadata: {
@@ -22,6 +23,12 @@ sap.ui.define(
         this.setModel(
           new JSONModel(oData)
         );
+
+        this.setModel(
+          new JSONModel({
+            currency: 'CAD',
+            threshold: formatter.threshold
+          }), 'value');
 
         const oDeviceModel = new JSONModel(Device);
         oDeviceModel.setDefaultBindingMode('OneWay');

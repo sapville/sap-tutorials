@@ -2,22 +2,14 @@
 sap.ui.define(
   [
     'sap/ui/core/mvc/Controller',
-    'sap/ui/model/json/JSONModel',
     'sapui/demo/walkthrough/model/formatter',
     'sap/ui/model/Filter',
     'sap/ui/model/FilterOperator'
   ],
-  function(Controller, JSONModel, formatter, Filter, FilterOperator) {
+  function(Controller, formatter, Filter, FilterOperator) {
     'use strict';
     return Controller.extend('sapui.demo.walkthrough.controller.InvoiceList', {
       formatter: formatter,
-      onInit: function() {
-        this.getView().setModel(
-          new JSONModel({
-            currency: 'CAD',
-            threshold: formatter.threshold
-          }), 'view');
-      },
       onFilterInvoices: function(oEvent) {
         const aFilter = [];
         const sQuery = oEvent.getSource().getValue();
