@@ -4,88 +4,96 @@
   xmlns:core="sap.ui.core"
   xmlns:mvc="sap.ui.core.mvc"
   xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
-  <Table
-    id="invoiceList"
-    class="sapUiResponsiveMargin"
-    width="auto"
-    items="{
-      path: 'invoice>/Invoices',
-      sorter: [{path: 'ShipperName', group: true}, {path: 'ProductName'}]
-    }">
+  <Panel
+    accessibleRole="Region">
     <headerToolbar>
       <Toolbar>
         <Title text="{i18n>invoiceListTitle}"/>
         <ToolbarSpacer/>
-        <SearchField width="50%" liveChange=".onFilterInvoices"/>
+        <SearchField
+          ariaLabelledBy="searchFieldLabel"
+          ariaDescribedBy="searchFieldDescription"
+          placeholder="{i18n>searchFieldPlaceholder}"
+          width="50%" 
+          liveChange=".onFilterInvoices"/>
       </Toolbar>
     </headerToolbar>
-    <columns>
-      <Column
-        width="4em"
-        minScreenWidth="Desktop">
-        <Text text="{i18n>columnIcon}"/>
-      </Column>
-      <Column
-        hAlign="End"
-        minScreenWidth="Small"
-        demandPopin="true"
-        width="4em">
-        <Text text="{i18n>columnQuantity}"/>
-      </Column>
-      <Column>
-        <Text text="{i18n>columnName}"/>
-      </Column>
-      <Column
-        minScreenWidth="Small"
-        demandPopin="true">
-        <Text text="{i18n>columnStatus}"/>
-      </Column>
-      <Column
-        minScreenWidth="Tablet"
-        demandPopin="false">
-        <Text text="{i18n>columnSupplier}"/>
-      </Column>
-      <Column
-        hAlign="End">
-        <Text text="{i18n>columnPrice}"/>
-      </Column>
-    </columns>
-    <items>
-      <ColumnListItem
-        type="Navigation"
-        press=".onPress">
-        <cells>
-          <core:Icon
-            src="{= ${invoice>ExtendedPrice} > ${value>/threshold/max} ? 'sap-icon://warning2' : 'sap-icon://complete' }"/>
-          <ObjectNumber 
-            number="{invoice>Quantity}" 
-            emphasized="false"/>
-          <ObjectIdentifier 
-            title="{invoice>ProductName}"/>
-          <Text
-            text="{
-              path:'invoice>Status',
-              formatter: '.formatter.statusText'
-            }"/>
+    <Table
+      id="invoiceList"
+      class="sapUiResponsiveMargin"
+      width="auto"
+      items="{
+        path: 'invoice>/Invoices',
+        sorter: [{path: 'ShipperName', group: true}, {path: 'ProductName'}]
+      }">
+      <columns>
+        <Column
+          width="4em"
+          minScreenWidth="Desktop">
+          <Text text="{i18n>columnIcon}"/>
+        </Column>
+        <Column
+          hAlign="End"
+          minScreenWidth="Small"
+          demandPopin="true"
+          width="4em">
+          <Text text="{i18n>columnQuantity}"/>
+        </Column>
+        <Column>
+          <Text text="{i18n>columnName}"/>
+        </Column>
+        <Column
+          minScreenWidth="Small"
+          demandPopin="true">
+          <Text text="{i18n>columnStatus}"/>
+        </Column>
+        <Column
+          minScreenWidth="Tablet"
+          demandPopin="false">
+          <Text text="{i18n>columnSupplier}"/>
+        </Column>
+        <Column
+          hAlign="End">
+          <Text text="{i18n>columnPrice}"/>
+        </Column>
+      </columns>
+      <items>
+        <ColumnListItem
+          type="Navigation"
+          press=".onPress">
+          <cells>
+            <core:Icon
+              src="{= ${invoice>ExtendedPrice} > ${value>/threshold/max} ? 'sap-icon://warning2' : 'sap-icon://complete' }"/>
+            <ObjectNumber 
+              number="{invoice>Quantity}" 
+              emphasized="false"/>
+            <ObjectIdentifier 
+              title="{invoice>ProductName}"/>
             <Text
-              text="{invoice>ShipperName}"/>
-            <ObjectNumber
-              number="{
-                parts: [{path: 'invoice>ExtendedPrice'},{path: 'value>/currency'}],
-                type: 'sap.ui.model.type.Currency',
-                formatOptions: { 
-                  showMeasure: false,
-                  decimalSeparator: '.',
-                  groupingSeparator: ','
-                }
-              }"
-              unit="{value>/currency}"
-              state="{
-                parts: [{path: 'invoice>ExtendedPrice'}],
-                formatter: '.formatter.getState'
+              text="{
+                path:'invoice>Status',
+                formatter: '.formatter.statusText'
               }"/>
-        </cells>
-      </ColumnListItem>
-    </items>
-  </Table>
+              <Text
+                text="{invoice>ShipperName}"/>
+              <ObjectNumber
+                number="{
+                  parts: [{path: 'invoice>ExtendedPrice'},{path: 'value>/currency'}],
+                  type: 'sap.ui.model.type.Currency',
+                  formatOptions: { 
+                    showMeasure: false,
+                    decimalSeparator: '.',
+                    groupingSeparator: ','
+                  }
+                }"
+                unit="{value>/currency}"
+                state="{
+                  parts: [{path: 'invoice>ExtendedPrice'}],
+                  formatter: '.formatter.getState'
+                }"/>
+          </cells>
+        </ColumnListItem>
+      </items>
+    </Table>
+  </Panel>
 </mvc:View>
