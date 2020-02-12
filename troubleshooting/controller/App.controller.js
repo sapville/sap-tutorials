@@ -7,25 +7,25 @@
 sap.ui.define([
 	'sap/ui/core/mvc/Controller',
 	'sap/m/MessageToast',
-	'sap/ui/ux3/NavigationBar',
 	'sap/base/Log'
-], function (Controller, MessageToast, NavigationBar, Log) {
+], function(Controller, MessageToast, Log) {
 	"use strict";
 
 	return Controller.extend("sap.ui.demo.HeapOfShards.controller.App", {
 
-		onPress: function (oEvent) {
+		onPress: function(oEvent) {
 			var sMessage;
 			try {
-				sMessage = this.getResourceBundle().getText("buttonOk", [oEvent.getSourceXYZ().getId()]);
-			} catch (oException) {
+				sMessage = this.getResourceBundle().getText("buttonOk", [oEvent.getSource().getId()]);
+			}
+			catch (oException) {
 				sMessage = this.getResourceBundle().getText("buttonErrorOccurred");
 				Log.error(oException.stack);
 			}
 			MessageToast.show(sMessage);
 		},
 
-		getResourceBundle: function () {
+		getResourceBundle: function() {
 			return this.getView().getModel("i18n").getResourceBundle();
 		}
 
