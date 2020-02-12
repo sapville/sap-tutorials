@@ -11,7 +11,8 @@ sap.ui.define(
     'use strict';
     return UIComponent.extend('sapui.demo.walkthrough.Component', {
       metadata: {
-        manifest: 'json'
+        manifest: 'json',
+        async: true
       },
       init: function() {
         UIComponent.prototype.init.apply(this, arguments);

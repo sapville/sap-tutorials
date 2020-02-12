@@ -51,7 +51,8 @@
         }
       },
       "invoice": {
-        "dataSource": "invoiceRemote"
+        "dataSource": "invoiceRemote",
+        "preload": true
       }
     },
     "routing": {

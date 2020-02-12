@@ -15,7 +15,9 @@
       <headerContent>
         <Button
           icon="sap-icon://hello-world"
-          press=".onOpenDialog"/>
+          press=".onOpenDialog"
+          tooltip="tooltip">
+        </Button>
       </headerContent>
       <content>
         <mvc:XMLView viewName="sapui.demo.walkthrough.view.HelloPanel"/>
