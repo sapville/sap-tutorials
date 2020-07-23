@@ -22,12 +22,20 @@
   		"type": "XML",
   		"async": true,
   		"id": "app"
+  	},
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "tutorial.dataBinding.i18n.i18n"
+        }
+      }
+    },
+  	"dependencies": {
+  	  "minUI5Version": "1.79.2",
+  	  "libs": {
+  		  "sap.m": {}
+  	  }
   	}
-  },
-	"dependencies": {
-	  "minUI5Version": "1.79.2",
-	  "libs": {
-		  "sap.m": {}
-	  }
-	}
+  }
 }
