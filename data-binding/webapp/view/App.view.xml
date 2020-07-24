@@ -56,8 +56,13 @@
             htmlText="
               {justModel>/address/street}&lt;br&gt;
               {justModel>/address/zip} {justModel>/address/city}&lt;br&gt;
-              {justModel>/address/country}"
-            />
+              {justModel>/address/country}"/>
+          <Link
+            href="{
+              parts: ['justModel>/firstName', 'justModel>/lastName'],
+              formatter: '.formatMail'
+            }"
+            text="{i18n>sendEmail}"/>
         </l:VerticalLayout>
       </content>
     </Panel>
