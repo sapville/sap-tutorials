@@ -2,27 +2,63 @@
   controllerName="tutorial.dataBinding.controller.App"
   xmlns="sap.m"
   xmlns:form="sap.ui.layout.form"
+  xmlns:l="sap.ui.layout"
   xmlns:mvc="sap.ui.core.mvc">
-  <Shell>
-    <App
-      id="app">
-      <Page>
-        <Panel 
-          headerText="{i18n>panelHeaderText}" 
-          class="sapUiResponsiveMargin" 
-          width="auto">
-          <Text
-            text="Hi, I am {/firstName} {/lastName}"/>
-          <form:SimpleForm editable="true" layout="ColumnLayout">
-            <Label text="{i18n>firstName}"/>
-            <Input value="{/firstName}" valueLiveUpdate="true" width="200px" enabled="{/enabled}"/>
-            <Label text="{i18n>lastName}"/>
-            <Input value="{path: '/lastName', mode: 'sap.ui.model.BindingMode.OneWay'}" valueLiveUpdate="true" width="200px" enabled="{/enabled}"/>
-            <Label text="{i18n>enabled}"/>
-            <CheckBox selected="{/enabled}"/>
-          </form:SimpleForm>
-        </Panel>
-      </Page>
-    </App>
-  </Shell>
+    <Panel 
+      headerText="{i18n>panel1HeaderText}" 
+      class="sapUiResponsiveMargin" 
+      width="auto">
+      <Text
+        text="Hi, I am {justModel>/firstName} {justModel>/lastName}"/>
+      <form:SimpleForm editable="true" layout="ColumnLayout">
+        <Label 
+          text="{i18n>firstName}" 
+          labelFor="fName"/>
+        <Input 
+          id="fName" 
+          value="{justModel>/firstName}" 
+          valueLiveUpdate="true" 
+          width="200px" 
+          enabled="{justModel>/enabled}"/>
+        <Label 
+          text="{i18n>lastName}" 
+          labelFor="lName"/>
+        <Input 
+          id="lName" 
+          value="{
+            path: 'justModel>/lastName', 
+            mode: 'sap.ui.model.BindingMode.OneWay'
+          }" 
+          valueLiveUpdate="true" 
+          width="200px" 
+          enabled="{justModel>/enabled}"/>
+        <Label 
+          text="{i18n>enabled}" 
+          labelFor="enabled"/>
+        <CheckBox 
+          id="enabled" 
+          selected="{justModel>/enabled}"/>
+      </form:SimpleForm>
+    </Panel>
+    <Panel
+      headerText="{i18n>panel2HeaderText}"
+      class="sapUiResponsiveMargin" 
+      width="auto">
+      <content>
+        <l:VerticalLayout>
+          <Label
+            text="{i18n>address}:"
+            labelFor="address"/>
+          <FormattedText
+            id="address"
+            class="sapUiResponsiveMarginBottom"
+            width="200px"
+            htmlText="
+              {justModel>/address/street}&lt;br&gt;
+              {justModel>/address/zip} {justModel>/address/city}&lt;br&gt;
+              {justModel>/address/country}"
+            />
+        </l:VerticalLayout>
+      </content>
+    </Panel>
 </mvc:View>

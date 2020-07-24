@@ -6,6 +6,12 @@
   	"description": "Data Binding",
   	"applicationVersion": {
   	  "version": "1.0.0"
+  	},
+  	"dataSources": {
+  	  "justData": {
+  	    "type": "JSON",
+  	    "uri": "./service/JustData.json"
+  	  }
   	}
   },
   "sap.ui": {
@@ -20,8 +26,7 @@
   	"rootView": {
   		"viewName": "tutorial.dataBinding.view.App",
   		"type": "XML",
-  		"async": true,
-  		"id": "app"
+  		"async": true
   	},
     "models": {
       "i18n": {
@@ -29,6 +34,10 @@
         "settings": {
           "bundleName": "tutorial.dataBinding.i18n.i18n"
         }
+      },
+      "justModel": {
+        "dataSource": "justData",
+        "preload": true
       }
     },
   	"dependencies": {

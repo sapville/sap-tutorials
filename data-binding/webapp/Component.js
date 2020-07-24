@@ -15,16 +15,8 @@ sap.ui.define(
 
         UIComponent.prototype.init.apply(this, arguments);
 
-        const oModel = new JSONModel({
-          firstName: 'Eugene',
-          lastName: 'Fedoseev',
-          enabled: true,
-          panelHeaderText: 'Data Binding Basics'
-        });
-
         // oModel.setDefaultBindingMode(BindingMode.OneWay);
 
-        this.setModel(oModel);
       }
     });
   }
