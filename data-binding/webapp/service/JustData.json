@@ -9,5 +9,6 @@
     "country": "Germany"
   },
   "salesAmount": 12345.6789,
-  "currencyCode": "CAD"
+  "currencyCode": "CAD",
+  "priceThreshold": 20
 }

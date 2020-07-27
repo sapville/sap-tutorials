@@ -103,7 +103,9 @@
             type: 'sap.ui.model.type.Currency',
             formatOptions: {showMeasure: false}
           }"
-          numberUnit="{justModel>/currencyCode}">
+          numberUnit="{justModel>/currencyCode}"
+          numberState="{= ${productModel>UnitPrice} &lt;= ${justModel>/priceThreshold} ? 'Success' : 'Error' }"          
+          >
           <attributes>
             <ObjectAttribute
               text="{productModel>QuantityPerUnit}"/>
