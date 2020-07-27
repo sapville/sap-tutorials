@@ -11,6 +11,10 @@
   	  "justData": {
   	    "type": "JSON",
   	    "uri": "./service/JustData.json"
+  	  },
+  	  "products": {
+  	    "type": "JSON",
+  	    "uri": "./service/Products.json"
   	  }
   	}
   },
@@ -37,6 +41,10 @@
       },
       "justModel": {
         "dataSource": "justData",
+        "preload": true
+      },
+      "productModel": {
+        "dataSource": "products",
         "preload": true
       }
     },

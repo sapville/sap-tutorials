@@ -84,4 +84,39 @@
         </l:VerticalLayout>
       </content>
     </Panel>
+    <Panel
+      headerText="{i18n>panel3HeaderText}"
+      class="sapUiResponsiveMargin"
+      width="auto">
+      <List
+        headerText="{i18n>productListTitle}"
+        items="{productModel>/Products}">
+        <ObjectListItem
+          title="{productModel>ProductName}"
+          number="{
+            parts: [
+              {path: 'productModel>UnitPrice'},
+              {path: 'justModel>/currencyCode'}
+            ],
+            type: 'sap.ui.model.type.Currency',
+            formatOptions: {showMeasure: false}
+          }"
+          numberUnit="{justModel>/currencyCode}">
+          <attributes>
+            <ObjectAttribute
+              text="{productModel>QuantityPerUnit}"/>
+            <ObjectAttribute
+              title="{i18n>stockValue}"
+              text="{
+                parts: [
+                  {path: 'productModel>UnitPrice'},
+                  {path: 'productModel>UnitsInStock'},
+                  {path: 'justModel>/currencyCode'}
+                ],
+                formatter: '.formatStockValue'
+              }"/>
+          </attributes>
+        </ObjectListItem>
+      </List>
+    </Panel>
 </mvc:View>

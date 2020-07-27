@@ -1,8 +1,11 @@
 /*globals sap*/
 sap.ui.define([
   'sap/ui/core/mvc/Controller',
-  'sap/m/library'
-], function(Controller, mobileLib) {
+  'sap/m/library',
+  'sap/ui/core/Locale',
+  'sap/ui/core/LocaleData',
+  'sap/ui/model/type/Currency'
+], function(Controller, mobileLib, Locale, LocaleData, Currency) {
   return Controller.extend('tutorial.dataBinding.controller.App', {
     onInit: function() {
       sap.ui.getCore().getMessageManager().registerObject(this.getView(), true);
@@ -14,6 +17,15 @@ sap.ui.define([
         oResourceModel.getText('mailSubject', [sFName]),
         oResourceModel.getText('mailBody')
       );
+    },
+    formatStockValue: function(fUnitPrice, iUnitsInStock, sCurrencyCode) {
+
+      return new Currency(
+        new LocaleData(
+          new Locale(sap.ui.getCore().getConfiguration().getLanguage())
+        ).mData.currencyFormat
+      ).formatValue([fUnitPrice * iUnitsInStock, sCurrencyCode], 'string');
+
     }
   });
 });
