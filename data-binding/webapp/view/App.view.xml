@@ -1,6 +1,7 @@
 <mvc:View
   controllerName="tutorial.dataBinding.controller.App"
   xmlns="sap.m"
+  xmlns:core="sap.ui.core"
   xmlns:form="sap.ui.layout.form"
   xmlns:l="sap.ui.layout"
   xmlns:mvc="sap.ui.core.mvc">
@@ -89,38 +90,16 @@
       class="sapUiResponsiveMargin"
       width="auto">
       <List
+        id="ProductList"
         headerText="{i18n>productListTitle}"
-        items="{productModel>/Products}">
-        <ObjectListItem
-          press=".onItemSelected"
-          type="Active"
-          title="{productModel>ProductName}"
-          number="{
-            parts: [
-              {path: 'productModel>UnitPrice'},
-              {path: 'justModel>/currencyCode'}
-            ],
-            type: 'sap.ui.model.type.Currency',
-            formatOptions: {showMeasure: false}
-          }"
-          numberUnit="{justModel>/currencyCode}"
-          numberState="{= ${productModel>UnitPrice} &lt;= ${justModel>/priceThreshold} ? 'Success' : 'Error' }"          
-          >
-          <attributes>
-            <ObjectAttribute
-              text="{productModel>QuantityPerUnit}"/>
-            <ObjectAttribute
-              title="{i18n>stockValue}"
-              text="{
-                parts: [
-                  {path: 'productModel>UnitPrice'},
-                  {path: 'productModel>UnitsInStock'},
-                  {path: 'justModel>/currencyCode'}
-                ],
-                formatter: '.formatStockValue'
-              }"/>
-          </attributes>
-        </ObjectListItem>
+        items="{
+          path: 'productModel>/Products',
+          factory: '.productListFactory'
+        }">
+        <dependents>
+          <core:Fragment fragmentName="tutorial.dataBinding.view.ProductSimple" type="XML"/>
+          <core:Fragment fragmentName="tutorial.dataBinding.view.ProductExtended" type="XML"/>
+        </dependents>
       </List>
     </Panel>
     <Panel

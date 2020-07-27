@@ -4,8 +4,9 @@ sap.ui.define([
   'sap/m/library',
   'sap/ui/core/Locale',
   'sap/ui/core/LocaleData',
-  'sap/ui/model/type/Currency'
-], function(Controller, mobileLib, Locale, LocaleData, Currency) {
+  'sap/ui/model/type/Currency',
+  'sap/m/ObjectAttribute'
+], function(Controller, mobileLib, Locale, LocaleData, Currency, ObjectAttribute) {
   return Controller.extend('tutorial.dataBinding.controller.App', {
     onInit: function() {
 
@@ -40,6 +41,26 @@ sap.ui.define([
 
       const sPath = oEvent.getSource().getBindingContext('productModel').getPath();
       this.byId('productDetailPanel').bindElement({ path: sPath, model: 'productModel' });
+
+    },
+
+    productListFactory: function(sId, oContext) {
+
+      let oUIControl;
+
+      if (oContext.getProperty('UnitsInStock') === 0 && oContext.getProperty('Discontinued')) {
+        oUIControl = this.byId('productSimple').clone(sId);
+      }
+      else {
+        oUIControl = this.byId('productExtended').clone(sId);
+        if (oContext.getProperty('UnitsInStock') < 1) {
+          oUIControl.addAttribute(
+            new ObjectAttribute({ text: { path: 'i18n>outOfStock' } })
+          );
+        }
+      }
+
+      return oUIControl;
 
     }
   });
