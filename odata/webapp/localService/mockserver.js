@@ -131,7 +131,7 @@ sap.ui.define([
     return JSON.stringify({
       error: {
         code: '409',
-        message: 'There is already a user with user name " + sKey + ".',
+        message: 'There is already a user with user name  "' + sKey + '".',
         target: 'UserName'
       }
     });
