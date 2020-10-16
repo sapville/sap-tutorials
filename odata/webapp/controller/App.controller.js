@@ -109,6 +109,18 @@ sap.ui.define([
       this._bTechnicalErrors = false;
       this._setUIChanges();
     },
+    onResetDataSource: function() {
+      const oModel = this.getView().getModel();
+      const oOperation = oModel.bindContext('/ResetDataSource(...)');
+      oOperation.execute()
+        .then(
+          () => {
+            oModel.refresh();
+            MessageToast.show(this._getText('sourceResetSuccessMessage'));
+          },
+          oError => { MessageBox.error(oError.message); }
+        );
+    },
     onInputChange: function(oEvent) {
       if (oEvent.getParameter('escPressed')) {
         this._setUIChanges();
