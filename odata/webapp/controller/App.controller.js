@@ -91,6 +91,19 @@ sap.ui.define([
         }
       });
     },
+    onDelete: function() {
+      const oSelected = this.byId('peopleList').getSelectedItem();
+      if (oSelected) {
+        oSelected.getBindingContext().delete('$auto')
+          .then(
+            () => { MessageToast.show(this._getText('deletionSuccesfulMessage')); },
+            oError => { MessageBox.error(oError.message); }
+          );
+      }
+      else {
+        MessageToast.show(this._getText('nothingToDelete'));
+      }
+    },
     onResetChanges: function() {
       this.byId('peopleList').getBinding('items').resetChanges();
       this._bTechnicalErrors = false;
