@@ -7,7 +7,7 @@
 	  title="{i18n>homePageTitle}"
 	  class="sapUiResponsiveContentPadding">
 		<content>
-			<Button text="{i18n>iWantToNavigate}" class="sapUiTinyMarginEnd"/>
+			<Button id="displayNotFoundBtn" text="{i18n>DisplayNotFound}" press=".onDisplayNotFound" class="sapUiTinyMarginEnd"/>
 		</content>
 	</Page>
 </mvc:View>
