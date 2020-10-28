@@ -86,6 +86,11 @@
 					"viewId": "home",
 					"viewName": "Home",
 					"viewLevel": 1
+				},
+				"notFound": {
+					"viewId": "notFound",
+					"viewName": "NotFound",
+					"transition": "show"
 				}
 			}
 		}
