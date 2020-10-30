@@ -42,6 +42,7 @@ sap.ui.define([
           oMockServer.start();
 
           Log.info('Running the app with mock data');
+
           fnResolve();
         });
 

@@ -1,22 +1,5 @@
 [
 	{
-		"EmployeeID": 1,
-		"LastName": "Davolio",
-		"FirstName": "Nancy",
-		"Address": "507 - 20th Ave. E. Apt. 2A",
-		"City": "Seattle",
-		"Region": "WA",
-		"PostalCode": "98122",
-		"Country": "USA",
-		"HomePhone": "(206) 555-9857",
-		"ResumeID": 1,
-		"Resume" : {
-			"__deferred": {
-				"uri": "/here/goes/your/serviceUrl/Employees(1)/Resume"
-			}
-		}
-	},
-	{
 		"EmployeeID": 2,
 		"LastName": "Fuller",
 		"FirstName": "Andrew",
@@ -30,6 +13,23 @@
 		"Resume" : {
 			"__deferred": {
 				"uri": "/here/goes/your/serviceUrl/Employees(2)/Resume"
+			}
+		}
+	},
+	{
+		"EmployeeID": 1,
+		"LastName": "Davolio",
+		"FirstName": "Nancy",
+		"Address": "507 - 20th Ave. E. Apt. 2A",
+		"City": "Seattle",
+		"Region": "WA",
+		"PostalCode": "98122",
+		"Country": "USA",
+		"HomePhone": "(206) 555-9857",
+		"ResumeID": 1,
+		"Resume" : {
+			"__deferred": {
+				"uri": "/here/goes/your/serviceUrl/Employees(1)/Resume"
 			}
 		}
 	},
